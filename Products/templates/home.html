@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all-products</title>
+</head>
+<body>
+    <center>All Produts</center>
+    <div>
+        {% for product in product %}
+        <h3><b>{{product.productName}}</b></h3>
+        <h4>Price : {{product.price}}</h4>
+        <img src="{{product.image.url}}" alt="image not found" width="300px" height="300px">
+        <h3>Seller : {{product.seller}}</h3>
+        <br>
+        <h3>Rating & review</h3>
+        <h5>Rating : {{product.averageRating}}</h5>
+        <h5>Reviews</h5>
+        {%if not product.reviews.all%}
+        <i>no reviews for this product</i>
+        {%else%}
+            {% for i in product.reviews.all %}
+            <h4>{{i.review}}</h4>
+            <br>
+            {%endfor%}
+        {%endif%}
+        {% endfor %}
+        
+    </div>
+</body>
+</html>
