@@ -8,7 +8,8 @@ class Product(models.Model):
     isAvailable = models.BooleanField()
     seller = models.CharField(max_length=50)
     description = models.CharField(max_length=300)
-    averageRating = models.FloatField(default=1.0)
+    # averageRating = models.FloatField(default=1.0)
+    averageRating = models.DecimalField(max_digits=3,decimal_places=2)
 
     def __str__(self):
         return self.productName
